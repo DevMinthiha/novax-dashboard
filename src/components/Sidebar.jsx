@@ -15,6 +15,8 @@ import Logo from "../assets/logo.svg";
 import SidebarFooter from "./SidebarFooter";
 import MenuItem from "./MenuItem";
 import withUser from "../hocs/withUser";
+import { Link } from "react-router-dom";
+import { paths } from "../routes/paths";
 
 const useStyles = createStyles((theme) => ({
   navbar: {
@@ -53,7 +55,7 @@ const useStyles = createStyles((theme) => ({
   },
 }));
 
-const Sidebar = ({user}) => {
+const Sidebar = ({ user }) => {
   const { classes } = useStyles();
 
   return (
@@ -65,7 +67,9 @@ const Sidebar = ({user}) => {
     >
       <Navbar.Section>
         <Group position="apart">
-          <Image src={Logo} width={50} />
+          <Link to={paths.home}>
+            <Image src={Logo} width={50} />
+          </Link>
           <Text size={"lg"}>{user?.name}</Text>
         </Group>
       </Navbar.Section>
